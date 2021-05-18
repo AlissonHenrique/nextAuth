@@ -8,11 +8,12 @@ import { AuthTokenError } from "../services/erros/AuthTokenError";
 import { witchSSRAuth } from "../utils/witchSSRAuth";
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
+  const { user, signOut } = useContext(AuthContext);
   // const userCanSeemMetrics = useCan({ permissions: ["metrics.list"] });
   return (
     <>
       <h1>Dashboard {user}</h1>
+      <button onClick={signOut}>SignOut</button>
       {/* {userCanSeemMetrics && <div>Metrics</div>} */}
       <Can permissions={["metrics.list"]}>
         <div>Métrics</div>
